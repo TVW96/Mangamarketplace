@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap');
+
+:root {
+  --background: oklch(0.965 0.012 85);
+  --surface: oklch(0.985 0.008 85);
+  --surface-raised: oklch(1 0 0);
+  --text: oklch(0.205 0.025 255);
+  --text-muted: oklch(0.43 0.02 255);
+  --accent: oklch(0.5 0.185 28);
+  --accent-strong: oklch(0.43 0.16 28);
+  --on-accent: oklch(0.98 0.01 85);
+  --info: oklch(0.43 0.075 235);
+  --line: oklch(0.78 0.018 85);
+  --line-strong: oklch(0.61 0.022 85);
+  --shadow: oklch(0.205 0.025 255 / 0.14);
+  --carbon: oklch(0.165 0.018 255);
+  --paper: oklch(0.965 0.012 85);
+  --signal-yellow: oklch(0.82 0.16 90);
+
+  --font-serif: 'Newsreader', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --font-sans: 'DM Sans', Inter, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'DM Mono', 'SFMono-Regular', Consolas, monospace;
+  --title-size: clamp(1.75rem, calc(1.309859rem + 1.877934vw), 3rem);
+  --section-size: clamp(2.4rem, 1.7rem + 2.4vw, 5.4rem);
+  --page-gutter: clamp(1rem, 4vw, 3.75rem);
+  --max-width: 1600px;
+
+  color: var(--text);
+  background: var(--background);
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root[data-theme='dark'] {
+  --background: oklch(0.165 0.018 255);
+  --surface: oklch(0.205 0.018 255);
+  --surface-raised: oklch(0.245 0.02 255);
+  --text: oklch(0.93 0.015 85);
+  --text-muted: oklch(0.73 0.018 85);
+  --accent: oklch(0.72 0.17 35);
+  --accent-strong: oklch(0.78 0.15 40);
+  --on-accent: oklch(0.165 0.018 255);
+  --info: oklch(0.74 0.12 205);
+  --line: oklch(0.34 0.018 255);
+  --line-strong: oklch(0.5 0.022 255);
+  --shadow: oklch(0 0 0 / 0.35);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --background: oklch(0.165 0.018 255);
+    --surface: oklch(0.205 0.018 255);
+    --surface-raised: oklch(0.245 0.02 255);
+    --text: oklch(0.93 0.015 85);
+    --text-muted: oklch(0.73 0.018 85);
+    --accent: oklch(0.72 0.17 35);
+    --accent-strong: oklch(0.78 0.15 40);
+    --on-accent: oklch(0.165 0.018 255);
+    --info: oklch(0.74 0.12 205);
+    --line: oklch(0.34 0.018 255);
+    --line-strong: oklch(0.5 0.022 255);
+    --shadow: oklch(0 0 0 / 0.35);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    linear-gradient(90deg, transparent 49.95%, var(--line) 50%, transparent 50.05%) top center / min(100%, var(--max-width)) 100% no-repeat,
+    var(--background);
+}
+
+body,
+button,
+input {
+  font: inherit;
+}
+
+button,
+input {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  color: var(--on-accent);
+  background: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--info);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
